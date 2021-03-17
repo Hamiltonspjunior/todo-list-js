@@ -4,14 +4,14 @@
 
 input[type=text],
 input[type=text]:focus {
-  color: #fff;
+  color: #343a40;
   border: none;
-  background: rgba(0,0,0,0.2);
+  background: rgb(221, 221, 221);
   max-width: 400px;
 }
 
 .todos-container li {
-  background: #484E53;
+  background: #F4F4F4;
 }
 
 .delete {
