@@ -11,17 +11,13 @@ const addNewTodo = value => {
   `
 }
 
-const resetAddTodoForm = () => {
-  formAddTodo.reset()
-}
-
 const getTodosThatNotMatchWithSearch = (todos, inputSearchValue) => todos
   .filter(todo => !todo.textContent.toLowerCase().includes(inputSearchValue))
 
 const getTodosThatMatchWithSearch = (todos, inputSearchValue) => todos
   .filter(todo => todo.textContent.toLowerCase().includes(inputSearchValue))
 
-const hiddeTodos = todos => {
+const hideTodos = todos => {
   todos.forEach(todo => {
     todo.classList.remove('d-flex')
     todo.classList.add('hidden')
@@ -43,7 +39,7 @@ formAddTodo.addEventListener('submit', event => {
 
   if (isInputNotEmpty) {
     addNewTodo(inputValue)
-    resetAddTodoForm()
+    formAddTodo.reset()
   }
 })
 
@@ -64,6 +60,6 @@ inputSearch.addEventListener('input', event => {
   const todosThatNotMatchWithSearch = getTodosThatNotMatchWithSearch(todos, inputValue)
   const todosThatMatchWithSearch = getTodosThatMatchWithSearch(todos, inputValue)
   
-  hiddeTodos(todosThatNotMatchWithSearch)
+  hideTodos(todosThatNotMatchWithSearch)
   showTodos(todosThatMatchWithSearch)
 })
